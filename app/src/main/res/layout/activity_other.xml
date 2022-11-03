@@ -10,10 +10,11 @@
     tools:context=".OtherActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="새로운 화면 입니다."/>
     <Button
+        android:id="@+id/returnToMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="처음화면으로"/>
