@@ -37,4 +37,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+//        돌아온 이유가 닉네임 변경인가?
+        if(requestCode == REQUEST_FOR_NICKNAME){
+//            닉네임 변경 버튼을 눌러서 돌아온 것인가?
+            if (resultCode == RESULT_OK){
+//                실제 첨부된 새 닉네임을 텍스트 뷰에 반영
+                val newNickname = data?.getStringExtra("nickname")
+                nicknameTxt.text = newNickname
+            }
+        }
+    }
 }
