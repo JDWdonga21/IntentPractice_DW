@@ -1,6 +1,7 @@
 package com.jdwdonga.intentpractice_dw
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -11,6 +12,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        DIAL 액션 예제
+        dialBtn.setOnClickListener {
+            val inputPhoneNum = phoneNumEdt.text.toString()
+//            ${} 이용한 String 가공
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_DIAL, myUri)
+            startActivity(myIntent)
+        }
 
         editNicknameBtn.setOnClickListener {
             val myIntent = Intent(this, EditNickNameActivity::class.java)
