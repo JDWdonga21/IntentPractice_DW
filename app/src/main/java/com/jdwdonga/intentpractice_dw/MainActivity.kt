@@ -39,6 +39,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
 
+        naverWebBtn.setOnClickListener {
+            val myUri = Uri.parse("https://naver.com") // 실제 인터넷 주소를 재료로
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
+        kakaoStoreBtn.setOnClickListener {
+            val myUri = Uri.parse("market://details?id=com.kakao.talk") // 플레이스토어에 있는 id값
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+            startActivity(myIntent)
+        }
+
         editNicknameBtn.setOnClickListener {
             val myIntent = Intent(this, EditNickNameActivity::class.java)
             startActivityForResult(myIntent, REQUEST_FOR_NICKNAME)
