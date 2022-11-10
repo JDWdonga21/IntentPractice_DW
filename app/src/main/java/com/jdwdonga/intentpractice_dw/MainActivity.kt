@@ -30,6 +30,14 @@ class MainActivity : AppCompatActivity() {
             val myIntent = Intent(Intent.ACTION_CALL, myUri)
             startActivity(myIntent)
         }
+        //       문자보내기 액션 예제
+        smsBtn.setOnClickListener {
+            val inputPhoneNum = phoneNumEdt.text.toString()
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+            myIntent.putExtra("sms_body", "문자 내용 적어주기")
+            startActivity(myIntent)
+        }
 
         editNicknameBtn.setOnClickListener {
             val myIntent = Intent(this, EditNickNameActivity::class.java)
