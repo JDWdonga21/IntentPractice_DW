@@ -21,6 +21,15 @@ class MainActivity : AppCompatActivity() {
             val myIntent = Intent(Intent.ACTION_DIAL, myUri)
             startActivity(myIntent)
         }
+//        CALL 액션 예제
+        callBtn.setOnClickListener {
+            val inputPhoneNum = phoneNumEdt.text.toString()
+//            ${} 이용한 String 가공
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+//            Permission Denial 귄한 문제 발생 - 귄한 획득 필요
+            val myIntent = Intent(Intent.ACTION_CALL, myUri)
+            startActivity(myIntent)
+        }
 
         editNicknameBtn.setOnClickListener {
             val myIntent = Intent(this, EditNickNameActivity::class.java)
